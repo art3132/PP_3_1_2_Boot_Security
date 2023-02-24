@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Update user</title>
+</head>
+<body>
+<form action="#" th:action="@{/user-update}" th:object="${user}" method="post">
+  <label for="id">ID</label>
+  <input readonly type="number" th:field="*{id}" id="id" placeholder="id">
+  <br/><br/>
+  <label for="username">Username</label>
+  <input type="text" th:field="*{username}" id="username" placeholder="username">
+  <br/><br/>
+  <label for="password">Password</label>
+  <input type="text" th:field="*{password}" id="password" placeholder="password">
+  <br/><br/>
+  <label for="name">Name</label>
+  <input type="text" th:field="*{name}" id="name" placeholder="name">
+  <br/><br/>
+  <label for="surname">Last name</label>
+  <input type="text" th:field="*{surname}" id="surname" placeholder="surname">
+  <br/><br/>
+  <label for="city">City</label>
+  <input type="text" th:field="*{city}" id="city" placeholder="city">
+  <br/><br/>
+  <label for="age">Age</label>
+  <input type="number" th:field="*{age}" id="age" placeholder="age">
+  <br/><br/>
+  <label for="selectedRole">Selected role: </label>
+  <select multiple id="selectedRole" name="selectedRole">
+    <option th:each="role : ${roles}" th:value="${role}"
+            th:text="${role}">role
+    </option>
+  </select>
+  <br/><br/>
+  <input type="submit" value="Update User">
+</form>
+</body>
+</html>

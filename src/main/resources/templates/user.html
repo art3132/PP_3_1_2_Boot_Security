@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User's page</title>
+</head>
+<body>
+<div th:switch="${userPage}">
+    <h2 th:case="null">No users found!</h2>
+    <div th:case="*">
+        <h2>Your page</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>City</th>
+                <th>Age</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${userPage}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.surname}"></td>
+                <td th:text="${user.city}"></td>
+                <td th:text="${user.age}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/logout">Logout</a></p>
+</div>
+</body>
+</html>
